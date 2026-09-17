@@ -94,12 +94,21 @@ jobs:
       # ----------------------------------------------
       # DOWNLOAD CURRENT ECS TASK DEFINITION
       # ----------------------------------------------
+
+      
+      #- name: Download Task Definition
+       # run: |
+        #  aws ecs describe-task-definition \
+         #   --task-definition nginx-app \                
+          #  --query taskDefinition > task-definition.json
+
       - name: Download Task Definition
         run: |
-          aws ecs describe-task-definition \
-            --task-definition nginx-app \                
-            --query taskDefinition > task-definition.json
-
+           aws ecs describe-task-definition
+             --task-definition nginx-app
+             --query 'taskDefinition'
+             --output json > task-definition.json
+  
       # ----------------------------------------------
       # UPDATE TASK DEFINITION WITH NEW IMAGE
       # ----------------------------------------------
@@ -122,3 +131,5 @@ jobs:
           cluster: nginx-cluster  #name of my cluster. pull name from task definition json
           wait-for-service-stability: true
           force-new-deployment: true   ##############
+
+    
