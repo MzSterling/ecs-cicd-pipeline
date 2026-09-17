@@ -106,8 +106,7 @@ jobs:
         run: |
            aws ecs describe-task-definition \
              --task-definition nginx-app \
-             --query 'taskDefinition'
-             --output json > task-definition.json
+             --query taskDefinition > task-definition.json
   
       # ----------------------------------------------
       # UPDATE TASK DEFINITION WITH NEW IMAGE
