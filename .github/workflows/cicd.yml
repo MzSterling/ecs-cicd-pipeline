@@ -105,7 +105,7 @@ jobs:
       - name: Download Task Definition
         run: |
            aws ecs describe-task-definition
-             --task-definition nginx-app
+             --task-definition nginx-app:2
              --query 'taskDefinition'
              --output json > task-definition.json
   
