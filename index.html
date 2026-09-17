@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DevOps Engineer Resume</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            background: #f4f6f8;
+            color: #222;
+        }
+
+        /* Navigation */
+        nav {
+            background: #111827;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #111827, #1e3a5f);
+            color: white;
+            padding: 100px 10%;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 10px;
+        }
+
+        .hero h2 {
+            color: #38bdf8;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #dbeafe;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #38bdf8;
+            color: #111827;
+            padding: 13px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .button:hover {
+            background: white;
+        }
+
+        .button-outline {
+            background: transparent;
+            color: white;
+            border: 1px solid #38bdf8;
+        }
+
+        /* Sections */
+        section {
+            padding: 75px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 45px;
+        }
+
+        .section-title span {
+            color: #0284c7;
+        }
+
+        /* About */
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        /* Skills */
+        .skills {
+            background: #f4f6f8;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .skill-card h3 {
+            color: #0284c7;
+            margin-bottom: 15px;
+        }
+
+        .skill-card ul {
+            list-style: none;
+        }
+
+        .skill-card li {
+            padding: 5px 0;
+        }
+
+        /* Experience */
+        .experience {
+            background: white;
+        }
+
+        .job {
+            max-width: 950px;
+            margin: 0 auto 40px auto;
+            padding-left: 25px;
+            border-left: 4px solid #38bdf8;
+        }
+
+        .job h3 {
+            font-size: 24px;
+        }
+
+        .job h4 {
+            color: #0284c7;
+            margin: 5px 0;
+        }
+
+        .date {
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .job ul {
+            padding-left: 20px;
+        }
+
+        .job li {
+            margin-bottom: 8px;
+        }
+
+        /* Projects */
+        .projects {
+            background: #f4f6f8;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .project {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .project h3 {
+            color: #0284c7;
+            margin-bottom: 12px;
+        }
+
+        .tech {
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Certifications */
+        .certifications {
+            background: white;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .cert {
+            padding: 25px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .cert h3 {
+            color: #0284c7;
+            margin-bottom: 10px;
+        }
+
+        /* Contact */
+        .contact {
+            background: #111827;
+            color: white;
+            text-align: center;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact p {
+            margin: 10px 0;
+        }
+
+        .contact a {
+            color: #38bdf8;
+            text-decoration: none;
+        }
+
+        /* Footer */
+        footer {
+            background: #080c13;
+            color: #aaa;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .hero {
+                text-align: center;
+                padding: 70px 7%;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero h2 {
+                font-size: 24px;
+            }
+
+            section {
+                padding: 55px 7%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+
+        <div class="logo">
+            DevOps<span>Engineer</span>
+        </div>
+
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- Hero Section -->
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <h1>YOUR NAME</h1>
+
+            <h2>DevOps Engineer | Cloud Engineer</h2>
+
+            <p>
+                DevOps Engineer specializing in AWS cloud infrastructure,
+                Infrastructure as Code, CI/CD automation, containerization,
+                Linux administration and cloud security.
+            </p>
+
+            <a href="#projects" class="button">
+                View Projects
+            </a>
+
+            <a href="#contact" class="button button-outline">
+                Contact Me
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- About -->
+    <section id="about" class="about">
+
+        <h2 class="section-title">
+            Professional <span>Summary</span>
+        </h2>
+
+        <div class="about-content">
+
+            <p>
+                DevOps and Cloud Engineer with hands-on experience
+                designing, deploying and automating cloud infrastructure.
+                Skilled in AWS, Terraform, Docker, Jenkins, GitHub Actions,
+                Linux and CI/CD pipelines.
+            </p>
+
+            <br>
+
+            <p>
+                Experienced in building secure and scalable cloud
+                environments using Infrastructure as Code and automation.
+                Strong understanding of AWS networking, IAM, containers,
+                deployment pipelines and cloud security practices.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Skills -->
+    <section id="skills" class="skills">
+
+        <h2 class="section-title">
+            Technical <span>Skills</span>
+        </h2>
+
+        <div class="skills-grid">
+
+            <div class="skill-card">
+
+                <h3>AWS Cloud</h3>
+
+                <ul>
+                    <li>Amazon EC2</li>
+                    <li>Amazon S3</li>
+                    <li>Amazon ECR</li>
+                    <li>Amazon ECS</li>
+                    <li>AWS Fargate</li>
+                    <li>CloudFront</li>
+                    <li>IAM</li>
+                    <li>VPC</li>
+                    <li>Load Balancers</li>
+                </ul>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>DevOps & CI/CD</h3>
+
+                <ul>
+                    <li>Jenkins</li>
+                    <li>GitHub Actions</li>
+                    <li>Git</li>
+                    <li>GitHub</li>
+                    <li>CI/CD Pipelines</li>
+                    <li>Automation</li>
+                </ul>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>Infrastructure</h3>
+
+                <ul>
+                    <li>Terraform</li>
+                    <li>Docker</li>
+                    <li>Kubernetes</li>
+                    <li>Linux</li>
+                    <li>Apache</li>
+                    <li>Nginx</li>
+                </ul>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>Security</h3>
+
+                <ul>
+                    <li>AWS IAM</li>
+                    <li>Trivy</li>
+                    <li>Container Security</li>
+                    <li>Cloud Security</li>
+                    <li>Secrets Management</li>
+                    <li>Least Privilege</li>
+                </ul>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>Scripting</h3>
+
+                <ul>
+                    <li>Bash</li>
+                    <li>Python</li>
+                    <li>YAML</li>
+                    <li>JSON</li>
+                    <li>PowerShell</li>
+                    <li>HTML / CSS</li>
+                </ul>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>Tools</h3>
+
+                <ul>
+                    <li>VS Code</li>
+                    <li>Git</li>
+                    <li>GitHub</li>
+                    <li>AWS CLI</li>
+                    <li>Linux CLI</li>
+                    <li>CloudWatch</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Experience -->
+    <section id="experience" class="experience">
+
+        <h2 class="section-title">
+            Professional <span>Experience</span>
+        </h2>
+
+
+        <div class="job">
+
+            <h3>DevOps Engineer</h3>
+
+            <h4>Company Name | Location</h4>
+
+            <div class="date">
+                2024 - Present
+            </div>
+
+            <ul>
+
+                <li>
+                    Designed and maintained AWS cloud infrastructure
+                    for application deployment.
+                </li>
+
+                <li>
+                    Automated infrastructure provisioning using Terraform.
+                </li>
+
+                <li>
+                    Built CI/CD pipelines using Jenkins and GitHub Actions.
+                </li>
+
+                <li>
+                    Built and managed Docker container images.
+                </li>
+
+                <li>
+                    Pushed container images to Amazon ECR.
+                </li>
+
+                <li>
+                    Implemented container vulnerability scanning using Trivy.
+                </li>
+
+                <li>
+                    Managed AWS IAM roles, policies and permissions.
+                </li>
+
+                <li>
+                    Configured VPCs, subnets, route tables and security groups.
+                </li>
+
+                <li>
+                    Troubleshot Linux systems, networking and deployment issues.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="job">
+
+            <h3>Cloud / Systems Engineer</h3>
+
+            <h4>Previous Company | Location</h4>
+
+            <div class="date">
+                2021 - 2024
+            </div>
+
+            <ul>
+
+                <li>
+                    Supported Linux-based infrastructure and cloud environments.
+                </li>
+
+                <li>
+                    Automated system administration tasks using scripting.
+                </li>
+
+                <li>
+                    Supported Git-based development and deployment workflows.
+                </li>
+
+                <li>
+                    Assisted with network, security and infrastructure
+                    troubleshooting.
+                </li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- Projects -->
+    <section id="projects" class="projects">
+
+        <h2 class="section-title">
+            Featured <span>DevOps Projects</span>
+        </h2>
+
+
+        <div class="project-grid">
+
+
+            <div class="project">
+
+                <h3>AWS Static Website</h3>
+
+                <p>
+                    Designed and deployed a secure static website using
+                    Amazon S3 and CloudFront with Origin Access Control.
+                </p>
+
+                <p class="tech">
+                    AWS | S3 | CloudFront | ACM | Terraform | IAM
+                </p>
+
+            </div>
+
+
+            <div class="project">
+
+                <h3>Terraform AWS Infrastructure</h3>
+
+                <p>
+                    Built AWS networking infrastructure using Terraform,
+                    including VPCs, public and private subnets,
+                    route tables and security components.
+                </p>
+
+                <p class="tech">
+                    Terraform | AWS | VPC | IAM
+                </p>
+
+            </div>
+
+
+            <div class="project">
+
+                <h3>GitHub Actions CI/CD</h3>
+
+                <p>
+                    Created a CI/CD pipeline that builds Docker images,
+                    performs security scanning and pushes images to
+                    Amazon ECR.
+                </p>
+
+                <p class="tech">
+                    GitHub Actions | Docker | ECR | Trivy
+                </p>
+
+            </div>
+
+
+            <div class="project">
+
+                <h3>Jenkins CI/CD</h3>
+
+                <p>
+                    Deployed Jenkins using Docker and configured automated
+                    pipelines for application builds and deployments.
+                </p>
+
+                <p class="tech">
+                    Jenkins | Docker | Linux | Git
+                </p>
+
+            </div>
+
+
+            <div class="project">
+
+                <h3>Docker Web Application</h3>
+
+                <p>
+                    Built and deployed containerized web applications
+                    using Apache and Nginx.
+                </p>
+
+                <p class="tech">
+                    Docker | Apache | Nginx | Linux
+                </p>
+
+            </div>
+
+
+            <div class="project">
+
+                <h3>AWS ECS / Fargate</h3>
+
+                <p>
+                    Created a container deployment architecture using
+                    Amazon ECS and Fargate for running Dockerized
+                    applications.
+                </p>
+
+                <p class="tech">
+                    AWS | ECS | Fargate | ECR | Docker
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Certifications -->
+    <section id="certifications" class="certifications">
+
+        <h2 class="section-title">
+            Certifications
+        </h2>
+
+
+        <div class="cert-grid">
+
+            <div class="cert">
+
+                <h3>CISSP</h3>
+
+                <p>
+                    Information security, risk management,
+                    security architecture and operations.
+                </p>
+
+            </div>
+
+
+            <div class="cert">
+
+                <h3>CompTIA CySA+</h3>
+
+                <p>
+                    Cybersecurity analytics, threat detection and
+                    defensive security operations.
+                </p>
+
+            </div>
+
+
+            <div class="cert">
+
+                <h3>CompTIA Security+</h3>
+
+                <p>
+                    Cybersecurity fundamentals, network security
+                    and risk management.
+                </p>
+
+            </div>
+
+
+            <div class="cert">
+
+                <h3>AWS Cloud Training</h3>
+
+                <p>
+                    Hands-on AWS cloud infrastructure, networking,
+                    security and deployment.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+
+        <h2 class="section-title">
+            Contact <span>Me</span>
+        </h2>
+
+        <p>
+            Email:
+            <a href="mailto:your.email@example.com">
+                your.email@example.com
+            </a>
+        </p>
+
+        <p>
+            LinkedIn:
+            <a href="https://www.linkedin.com/" target="_blank">
+                LinkedIn Profile
+            </a>
+        </p>
+
+        <p>
+            GitHub:
+            <a href="https://github.com/" target="_blank">
+                GitHub Profile
+            </a>
+        </p>
+
+        <p>
+            Location: New Jersey, United States
+        </p>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            &copy; 2026 YOUR NAME | DevOps Engineer
+        </p>
+
+        <p>
+            AWS | Terraform | Docker | Jenkins | GitHub Actions | CI/CD
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
