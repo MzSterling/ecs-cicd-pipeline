@@ -26,7 +26,23 @@ jobs:
       # CHECKOUT CODE
       # ----------------------------------------------
       - name: Checkout Code
-        uses: actions/checkout@v5  #
+        uses: actions/checkout@v7  #chnged from v5 to v7
+
+
+    #=======================================================
+    # SECURITY SCAN - SOURCE CODE FOR SECRETS
+    #=======================================================
+
+      - name: Scan Source for Secrets
+        uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          scan-type: fs
+          scan-ref: .
+          scanners: vuln, secret
+          severity: HIGH,CRITICAL
+          exit-code: 0   # Exit code 1 to exit when hgh and critical vulnerabilities are identified       
+
+
 
       # ----------------------------------------------
       # CONFIGURE AWS CREDENTIALS
@@ -55,6 +71,21 @@ jobs:
         run: |
           docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
 
+
+    #=======================================================           
+    # SECURITY SCAN - Docker Image
+    #========================================================
+      - name: Scan Docker Image with Trivy
+        uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          image-ref: ${{ steps.login-ecr.outputs.registry }}/${{ vars.ECR_REPOSITORY }}:${{ github.sha }}
+          format: table
+          severity: HIGH,CRITICAL
+          #ignore-unfixed: false   # change to true to ignore vulnerabiliies
+          exit-code: 0   #Change to 1 to exit so vulneabilities can be fixed. Exit 0 just so pipeline can run
+
+
+            
       # ==================================================
       # PUSH
       # ==================================================
