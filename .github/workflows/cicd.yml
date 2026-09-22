@@ -130,14 +130,15 @@ jobs:
           role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
           aws-region: ${{ vars.AWS_REGION }}
 
-      # ----------------------------------------------
-      # DOWNLOAD CURRENT ECS TASK DEFINITION
+      
+      # DOWNLOAD CURRENT ECS TASK DEFINITION ############################
       # ----------------------------------------------
     
+            
       - name: Download Task Definition
         run: |
            aws ecs describe-task-definition \
-             --task-definition nginx-app \
+             --task-definition ${{ env.ECS_TASK_FAMILY }} \
              --query taskDefinition > task-definition.json
   
       # ----------------------------------------------
@@ -148,7 +149,7 @@ jobs:
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: task-definition.json
-          container-name: nginx #pull name from task definition json
+          container-name: ${{ env.CONTAINER_NAME }} #pull name from task definition json
           image: ${{ needs.build.outputs.image }}
 
       # ==================================================
@@ -158,9 +159,14 @@ jobs:
         uses: aws-actions/amazon-ecs-deploy-task-definition@v2
         with:
           task-definition: ${{ steps.render-task-def.outputs.task-definition }}
-          service: nginx-service  # name of smy service.Pull name from task defintion json
-          cluster: nginx-cluster  #name of my cluster. pull name from task definition json
+          service: ${{ env.ECS_SERVICE }}  # name of smy service.Pull name from task defintion json
+          cluster: ${{ env.ECS_CLUSTER }}  #name of my cluster. pull name from task definition json
           wait-for-service-stability: true
           force-new-deployment: true   ##############
 
-    
+
+
+
+
+
+     
