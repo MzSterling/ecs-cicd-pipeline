@@ -9,6 +9,14 @@ permissions:
   id-token: write
   contents: read
 
+env:
+  AWS_REGION: ${{ vars.AWS_REGION }}
+  ECR_REPOSITORY: ${{ vars.ECR_REPOSITORY }}
+  ECS_CLUSTER: nginx-cluster
+  ECS_SERVICE: nginx-service
+  ECS_TASK_FAMILY: nginx-app
+  CONTAINER_NAME: nginx
+
 jobs:
 
   # ==================================================
@@ -40,7 +48,7 @@ jobs:
           scan-ref: .
           scanners: vuln,secret
           severity: HIGH,CRITICAL
-          exit-code: 0   # Exit code 1 to exit when hgh and critical vulnerabilities are identified       
+          exit-code: 1   # Exit code 0 to continue if hgh and critical vulnerabilities are identified       
 
 
 
